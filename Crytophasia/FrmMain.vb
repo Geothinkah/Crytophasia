@@ -1,17 +1,21 @@
 ﻿Imports System.IO
 
 Public Class FrmMain
-
-
-
+    Public User() As String
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ReadTSV()
+        User = Split(Application.UserAppDataPath, "\")
+
+            ReadTSV()
+        Dim cnt As Int16
+        cnt = CShort(DataGridView1.Rows.Count)
+        Text = User(2) & " - Crytophasia" & "        ---> " & cnt & " words are in the Crytonary! <---"
     End Sub
 
 
 
 
     Public Sub ReadTSV()
+        DataPath = "C:\Users\" & User(2) & "\OneDrive\Cryptophasia\Cryptophasia.tsv"
         Dim SplitLine() As String
         If File.Exists(DataPath) = True Then
             'Open the StreamReader
@@ -52,6 +56,22 @@ Public Class FrmMain
     Private Sub FrmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         ExportTSV()
     End Sub
+
+    'Private Sub RbLarry_CheckedChanged(sender As Object, e As EventArgs) Handles RbLarry.CheckedChanged
+    '    DataPath = "C:\Users\Larry\OneDrive\Cryptophasia\Cryptophasia.tsv"
+    'End Sub
+
+    'Private Sub RbDavid_CheckedChanged(sender As Object, e As EventArgs) Handles RbDavid.CheckedChanged
+    '    DataPath = "C:\Users\David\OneDrive\Cryptophasia\Cryptophasia.tsv"
+    'End Sub
+
+    'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    '    If RbDavid.Checked Or RbLarry.Checked Then
+    '        ReadTSV()
+    '    End If
+    'End Sub
+
+
 #End Region
 
 

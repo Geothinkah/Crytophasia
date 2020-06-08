@@ -1,3 +1,3 @@
-﻿Module ModMain
-    Public DataPath As String = "C:\Users\David\OneDrive\Cryptophasia\Cryptophasia.tsv"
+﻿Friend Module ModMain
+    Public DataPath As String
 End Module
